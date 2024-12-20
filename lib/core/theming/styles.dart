@@ -23,6 +23,12 @@ class TextStyles {
     color: ColorsManager.white,
     fontFamily: FontsManager.poppins,
   );
+  static TextStyle font22SemiBold = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.white,
+    fontFamily: FontsManager.poppins,
+  );
 
   static TextStyle font20SemiBold = TextStyle(
     fontSize: 20.sp,
