@@ -20,6 +20,7 @@ class ColorsManager {
 
   // Green
   static const primaryGreen = Color(0xFFB1D199);
+  static const secondaryGreen = Color(0xFF30E0A1);
 
   // Yellow
   static const primaryYellow = Color(0xFFFFB35A);
