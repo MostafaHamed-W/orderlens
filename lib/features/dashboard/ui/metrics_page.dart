@@ -55,6 +55,7 @@ class MetricsPage extends StatelessWidget {
                 details: '• 80 Active  • 9 InActive'.hardcoded,
                 icon: Icons.undo,
               ),
+              verticalHight(20),
             ],
           ),
         ),

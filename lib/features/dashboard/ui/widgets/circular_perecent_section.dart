@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/theming/colors_manager.dart';
 import 'package:orderlens/core/theming/styles.dart';
@@ -26,8 +27,8 @@ class CircularPerecentSection extends StatelessWidget {
           children: [
             // Only returned
             CircularPercentIndicator(
-              radius: 120.0,
-              lineWidth: 30.0,
+              radius: 110.0.r,
+              lineWidth: 30.0.w,
               percent: 1.0, // Full circle
               progressColor: ColorsManager.primaryGreen,
               backgroundColor: Colors.transparent,
@@ -36,8 +37,8 @@ class CircularPerecentSection extends StatelessWidget {
 
             // Ordered + Delivered
             CircularPercentIndicator(
-              radius: 120.0,
-              lineWidth: 30.0,
+              radius: 110.0.r,
+              lineWidth: 30.0.w,
               percent: orderedPercentage + deliveredPercentage,
               progressColor: ColorsManager.primaryBlue,
               backgroundColor: Colors.transparent,
@@ -46,8 +47,8 @@ class CircularPerecentSection extends StatelessWidget {
 
             // Only Ordered
             CircularPercentIndicator(
-              radius: 120.0,
-              lineWidth: 30.0,
+              radius: 110.0.r,
+              lineWidth: 30.0.w,
               percent: orderedPercentage,
               progressColor: ColorsManager.primaryYellow,
               backgroundColor: Colors.transparent,
@@ -57,19 +58,12 @@ class CircularPerecentSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '${(orderedPercentage + deliveredPercentage + returnedPercentage) * 100}%',
-                  style: const TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                  '${(deliveredPercentage) * 100}%',
+                  style: TextStyles.font20SemiBold,
                 ),
-                const Text(
-                  'Complete',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey,
-                  ),
+                Text(
+                  'Delivered'.hardcoded,
+                  style: TextStyles.font16Regular.copyWith(color: ColorsManager.lightGrey),
                 ),
               ],
             ),
