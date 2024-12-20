@@ -1,20 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/theming/colors_manager.dart';
 import 'package:orderlens/core/theming/styles.dart';
 
 class MetricCard extends StatelessWidget {
-  const MetricCard({super.key, required this.title, required this.value, required this.icon});
+  const MetricCard({
+    super.key,
+    required this.title,
+    this.details,
+    required this.icon,
+    required this.value,
+  });
   final String title, value;
+  final String? details;
   final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: ColorsManager.neutral700,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16.r),
+        border: Border.all(color: ColorsManager.strokeColor, width: 1),
+      ),
       child: ListTile(
-        leading: Icon(icon, size: 40, color: ColorsManager.primary700),
-        title: Text(title, style: TextStyles.font20Meduim.copyWith(color: ColorsManager.white)),
-        subtitle: Text(value, style: TextStyles.font24SemiBold.copyWith(color: ColorsManager.white)),
+        contentPadding: EdgeInsets.zero,
+        leading: Icon(icon, size: 35, color: ColorsManager.white),
+        title: Text(title, style: TextStyles.font16Meduim),
+        subtitle: details.isNullOrEmpty() ? null : Text(details!, style: TextStyles.font12Regular.copyWith(color: ColorsManager.lightGrey)),
+        trailing: Text(
+          value,
+          style: TextStyles.font16Meduim,
+        ),
       ),
     );
   }
