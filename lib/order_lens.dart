@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:orderlens/core/routing/app_router.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:orderlens/core/routing/navigation_service.dart';
+import 'package:orderlens/core/routing/routes.dart';
+import 'package:orderlens/core/theming/app_theme.dart';
+
 
 class OrderLens extends StatelessWidget {
-  const OrderLens({super.key});
+  final AppRouter appRouter;
+  const OrderLens({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('OrderLens'),
-        ),
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      child: MaterialApp(
+        themeMode: ThemeMode.dark,
+        theme: AppTheme.darkTheme,
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: appRouter.generateRoute,
+        navigatorKey: NavigationService.navigationKey,
+        initialRoute: Routes.onBoardingScreen,
       ),
     );
   }
