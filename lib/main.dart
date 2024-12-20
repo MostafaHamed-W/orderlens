@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:orderlens/core/routing/app_router.dart';
 import 'package:orderlens/order_lens.dart';
 
 void main() {
-  runApp(const OrderLens());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(OrderLens(appRouter: AppRouter()));
 }
