@@ -10,7 +10,6 @@ class GraphPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsManager.black,
       appBar: CustomAppBar(
         title: 'Graph'.hardcoded,
       ),

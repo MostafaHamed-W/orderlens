@@ -37,6 +37,13 @@ class TextStyles {
     fontFamily: FontsManager.poppins,
   );
 
+  static TextStyle font18MeduimSemiBold = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.white,
+    fontFamily: FontsManager.poppins,
+  );
+
   static TextStyle font18Meduim = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.meduim,
@@ -47,6 +54,12 @@ class TextStyles {
   static TextStyle font18Regular = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.white,
+    fontFamily: FontsManager.poppins,
+  );
+  static TextStyle font16Bold = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeightHelper.bold,
     color: ColorsManager.white,
     fontFamily: FontsManager.poppins,
   );

@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.centerTitle = true,
     this.showBackButton = false,
     this.actions,
-    this.backgroundColor = ColorsManager.black,
+    this.backgroundColor = ColorsManager.backgroundColor,
     this.titleStyle,
     this.leading,
     this.automaticallyImplyLeading = false,
@@ -27,12 +27,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: automaticallyImplyLeading,
       backgroundColor: backgroundColor,
       centerTitle: centerTitle,
       title: Text(
         title,
-        style: titleStyle ?? TextStyles.font20SemiBold.copyWith(color: ColorsManager.white),
+        style: titleStyle ?? TextStyles.font18Meduim.copyWith(color: ColorsManager.white),
       ),
       leading: showBackButton
           ? leading ??
