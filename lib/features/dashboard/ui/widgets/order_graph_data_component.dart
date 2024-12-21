@@ -18,14 +18,14 @@ class OrderGraphDataComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80.h,
-      width: 150.w,
+      width: 120.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: ColorsManager.strokeColor, width: 1),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: 16.w,
+          horizontal: 8.w,
           vertical: 8.h,
         ),
         child: Column(
