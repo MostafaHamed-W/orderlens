@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:orderlens/features/dashboard/data/models/grouped_orders_model.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
 part 'orders_state.freezed.dart';
 
 @freezed

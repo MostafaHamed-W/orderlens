@@ -25,6 +25,9 @@ class ColorsManager {
   // Yellow
   static const primaryYellow = Color(0xFFFFB35A);
 
+  // Red
+  static const primaryRed = Color(0xFFF6543E);
+
   // Other Colors
   static const backgroundColor = Color(0xFF0A0C16);
   static const strokeColor = Color(0xFF191D30);

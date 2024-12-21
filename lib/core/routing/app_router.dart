@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:orderlens/core/routing/routes.dart';
-import 'package:orderlens/features/dashboard/ui/dashboard_screen.dart';
+import 'package:orderlens/features/dashboard_screen.dart';
 import 'package:orderlens/features/onboarding/ui/onboarding_screen.dart';
 
 class AppRouter {

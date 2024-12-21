@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
-import 'package:orderlens/features/dashboard/data/models/grouped_orders_model.dart';
-import 'package:orderlens/features/dashboard/ui/widgets/order_graph_data_component.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
+import 'package:orderlens/features/graph/ui/widgets/order_graph_data_component.dart';
 
 class OrdersPerMonthWidget extends StatelessWidget {
   const OrdersPerMonthWidget({

@@ -1,4 +1,4 @@
-import 'package:orderlens/features/dashboard/data/models/grouped_orders_model.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
 
 class HelperFunctions {
   // Helper method to get the years of orders

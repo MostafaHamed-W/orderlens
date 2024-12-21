@@ -1,7 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:orderlens/core/services/local_data_service.dart';
-import 'package:orderlens/features/dashboard/data/repos/order_repo.dart';
-import 'package:orderlens/features/dashboard/logic/cubit/orders_cubit.dart';
+import 'package:orderlens/features/graph/data/repos/order_repo.dart';
+import 'package:orderlens/features/graph/logic/graph_cubit/orders_cubit.dart';
+import 'package:orderlens/features/metrics/data/repos/order_metrics_repo.dart';
+import 'package:orderlens/features/metrics/logic/cubit/order_metrics_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -19,4 +21,7 @@ Future<void> setupGetIt() async {
   // Orders
   getIt.registerLazySingleton<OrderRepo>(() => OrderRepo(getIt()));
   getIt.registerFactory<OrdersCubit>(() => OrdersCubit(getIt()));
+
+  getIt.registerLazySingleton<OrderMetricsRepository>(() => OrderMetricsRepository(getIt()));
+  getIt.registerFactory<OrderMetricsCubit>(() => OrderMetricsCubit(getIt()));
 }

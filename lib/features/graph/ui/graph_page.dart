@@ -7,11 +7,11 @@ import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/utilites/helper_functions.dart';
 import 'package:orderlens/core/widgets/custom_app_bar_widget.dart';
 import 'package:orderlens/core/widgets/custom_title_text.dart';
-import 'package:orderlens/features/dashboard/data/models/grouped_orders_model.dart';
-import 'package:orderlens/features/dashboard/logic/cubit/orders_cubit.dart';
-import 'package:orderlens/features/dashboard/logic/cubit/orders_state.dart';
-import 'package:orderlens/features/dashboard/ui/widgets/orders_graph.dart';
-import 'package:orderlens/features/dashboard/ui/widgets/orders_per_month_widget.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
+import 'package:orderlens/features/graph/logic/graph_cubit/orders_cubit.dart';
+import 'package:orderlens/features/graph/logic/graph_cubit/orders_state.dart';
+import 'package:orderlens/features/graph/ui/widgets/orders_graph.dart';
+import 'package:orderlens/features/graph/ui/widgets/orders_per_month_widget.dart';
 
 class GraphPage extends StatelessWidget {
   const GraphPage({super.key});
@@ -53,12 +53,9 @@ class GraphPage extends StatelessWidget {
           CustomTitleText(title: 'Orders per month'.hardcoded),
           verticalHight(15),
           OrdersPerMonthWidget(groupedOrders: groupedOrders),
-          verticalHight(40),
+          verticalHight(100),
         ],
       ),
     );
   }
-
-
 }
-
