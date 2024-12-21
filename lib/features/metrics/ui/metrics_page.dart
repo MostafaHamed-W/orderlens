@@ -17,10 +17,11 @@ class MetricsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ordersMetricsCubit = context.read<OrderMetricsCubit>();
     return Scaffold(
       appBar: CustomAppBar(title: 'Orders Metrics'.hardcoded),
-      body: BlocProvider(
-        create: (_) => getIt<OrderMetricsCubit>()..fetchMetrics(),
+      body: RefreshIndicator(
+        onRefresh: () => ordersMetricsCubit.fetchMetrics(),
         child: BlocBuilder<OrderMetricsCubit, OrderMetricsState>(
           builder: (context, state) {
             return state.when(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:orderlens/core/di/dependency_injection.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/utilites/helper_functions.dart';
@@ -18,10 +17,11 @@ class GraphPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ordersGraphCubit = context.read<OrdersGraphCubit>();
     return Scaffold(
       appBar: CustomAppBar(title: 'Orders graph'.hardcoded),
-      body: BlocProvider(
-        create: (_) => getIt<OrdersGraphCubit>()..fetchOrders(),
+      body: RefreshIndicator(
+        onRefresh: () => ordersGraphCubit.fetchOrders(),
         child: BlocBuilder<OrdersGraphCubit, OrdersGraphState>(
           builder: (context, state) {
             return state.when(
