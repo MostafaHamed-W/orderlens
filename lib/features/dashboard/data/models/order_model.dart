@@ -12,7 +12,7 @@ class OrderModel {
   final String buyer;
   final List<String> tags;
   final String status;
-  final String registered;
+  final DateTime registered;
 
   OrderModel({
     required this.id,
