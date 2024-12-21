@@ -7,8 +7,8 @@ import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/widgets/custom_app_bar_widget.dart';
 import 'package:orderlens/core/widgets/custom_title_text.dart';
 import 'package:orderlens/features/metrics/data/models/orders_metrics_model.dart';
-import 'package:orderlens/features/metrics/logic/cubit/order_metrics_cubit.dart';
-import 'package:orderlens/features/metrics/logic/cubit/order_metrics_state.dart';
+import 'package:orderlens/features/metrics/logic/metrics_cubit/order_metrics_cubit.dart';
+import 'package:orderlens/features/metrics/logic/metrics_cubit/order_metrics_state.dart';
 import 'package:orderlens/features/metrics/ui/widgets/circular_perecent_section.dart';
 import 'package:orderlens/features/metrics/ui/widgets/metrics_card.dart';
 

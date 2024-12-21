@@ -1,14 +1,14 @@
 import 'package:orderlens/core/services/data_result.dart';
 import 'package:orderlens/core/services/local_data_service.dart';
-import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_graph_model.dart';
 import 'package:orderlens/features/graph/data/models/order_model.dart';
 
-class OrderRepo {
+class OrderGraphRepo {
   final LocalDataService _localDataService;
 
-  OrderRepo(this._localDataService);
+  OrderGraphRepo(this._localDataService);
 
-  Future<DataResult<List<GroupedOrdersModel>>> getOrdersGroupedByMonth() async {
+  Future<DataResult<List<GroupedOrdersGraphModel>>> getOrdersGroupedByMonth() async {
     try {
       // Fetch all orders
       final orders = await _localDataService.getOrders();
@@ -22,7 +22,7 @@ class OrderRepo {
 
       // Convert grouped data to a list of models and sort by date
       final groupedOrders = monthOrderCounts.entries
-          .map((entry) => GroupedOrdersModel(
+          .map((entry) => GroupedOrdersGraphModel(
                 date: entry.key,
                 orderCount: entry.value,
               ))

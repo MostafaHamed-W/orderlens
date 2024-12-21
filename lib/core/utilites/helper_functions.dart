@@ -1,8 +1,8 @@
-import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_graph_model.dart';
 
 class HelperFunctions {
   // Helper method to get the years of orders
-  static String getYears(List<GroupedOrdersModel> groupedOrders) {
+  static String getYears(List<GroupedOrdersGraphModel> groupedOrders) {
     // Get the years of the orders
     // Using set to make year unique
     final years = groupedOrders.map((order) => order.date.year).toSet().toList()..sort();
