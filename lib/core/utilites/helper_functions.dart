@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:orderlens/features/graph/data/models/grouped_orders_graph_model.dart';
 
 class HelperFunctions {
@@ -12,5 +14,17 @@ class HelperFunctions {
       return '${years.first} - ${years.last}';
     }
     return '';
+  }
+
+  /// Adjusts text scaling specifically for web, without affecting mobile behavior
+  static Widget webBuilder(BuildContext context, Widget? child) {
+    const isWeb = kIsWeb;
+    final mediaQuery = MediaQuery.of(context);
+    return MediaQuery(
+      data: mediaQuery.copyWith(
+        textScaler: const TextScaler.linear(isWeb ? 0.6 : 1.0),
+      ),
+      child: child!,
+    );
   }
 }

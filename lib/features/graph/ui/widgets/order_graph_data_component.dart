@@ -17,22 +17,25 @@ class OrderGraphDataComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80.h,
-      width: 120.w,
+      height: 80,
+      width: 120,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: ColorsManager.strokeColor, width: 1),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 8.w,
-          vertical: 8.h,
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(title.toUpperCase(), style: TextStyles.font16Bold),
+            Text(
+              title.toUpperCase(),
+              style: TextStyles.font15Bold,
+              overflow: TextOverflow.clip,
+              maxLines: 1,
+            ),
             Text(
               '$value order',
               style: TextStyles.font16Meduim.copyWith(color: ColorsManager.lightGrey),

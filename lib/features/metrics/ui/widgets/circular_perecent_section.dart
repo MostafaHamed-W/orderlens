@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/theming/colors_manager.dart';
@@ -27,9 +26,9 @@ class CircularPerecentSection extends StatelessWidget {
           children: [
             // Only returned
             CircularPercentIndicator(
-              radius: 110.0.r,
-              lineWidth: 30.0.w,
-              percent: 1.0, // Full circle
+              radius: 110.0,
+              lineWidth: 30.0,
+              percent: 1.0, 
               progressColor: ColorsManager.primaryGreen,
               backgroundColor: Colors.transparent,
               circularStrokeCap: CircularStrokeCap.round,
@@ -37,8 +36,8 @@ class CircularPerecentSection extends StatelessWidget {
 
             // Ordered + Delivered
             CircularPercentIndicator(
-              radius: 110.0.r,
-              lineWidth: 30.0.w,
+              radius: 110.0,
+              lineWidth: 30.0,
               percent: orderedPercentage + deliveredPercentage,
               progressColor: ColorsManager.primaryBlue,
               backgroundColor: Colors.transparent,
@@ -47,8 +46,8 @@ class CircularPerecentSection extends StatelessWidget {
 
             // Only Ordered
             CircularPercentIndicator(
-              radius: 110.0.r,
-              lineWidth: 30.0.w,
+              radius: 110.0,
+              lineWidth: 30.0,
               percent: orderedPercentage,
               progressColor: ColorsManager.primaryYellow,
               backgroundColor: Colors.transparent,
@@ -98,8 +97,8 @@ class _LegendItem extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 8.w,
-          height: 8.h,
+          width: 8,
+          height: 8,
           decoration: BoxDecoration(
             color: color,
             shape: BoxShape.circle,

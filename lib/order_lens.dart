@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:orderlens/core/routing/navigation_service.dart';
 import 'package:orderlens/core/routing/routes.dart';
 import 'package:orderlens/core/theming/app_theme.dart';
+import 'package:orderlens/core/utilites/helper_functions.dart';
 
 
 class OrderLens extends StatelessWidget {
@@ -22,6 +23,8 @@ class OrderLens extends StatelessWidget {
         onGenerateRoute: appRouter.generateRoute,
         navigatorKey: NavigationService.navigationKey,
         initialRoute: Routes.onBoardingScreen,
+        // Adjust text scalling only for web
+        builder: HelperFunctions.webBuilder,
       ),
     );
   }

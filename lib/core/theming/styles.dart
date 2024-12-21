@@ -63,6 +63,12 @@ class TextStyles {
     color: ColorsManager.white,
     fontFamily: FontsManager.poppins,
   );
+  static TextStyle font15Bold = TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.white,
+    fontFamily: FontsManager.poppins,
+  );
   static TextStyle font16Bold = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.bold,
