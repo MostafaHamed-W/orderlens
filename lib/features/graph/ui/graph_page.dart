@@ -53,7 +53,7 @@ class GraphPage extends StatelessWidget {
           CustomTitleText(title: 'Orders per month'.hardcoded),
           verticalHight(15),
           OrdersPerMonthWidget(groupedOrders: groupedOrders),
-          verticalHight(40),
+          verticalHight(100),
         ],
       ),
     );

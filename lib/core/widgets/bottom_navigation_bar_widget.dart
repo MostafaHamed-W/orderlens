@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/theming/colors_manager.dart';
 import 'package:orderlens/core/theming/styles.dart';
-import 'package:orderlens/features/dashboard/ui/dashboard_screen.dart';
+import 'package:orderlens/features/dashboard_screen.dart';
 
 class BottomNavBarWidget extends StatelessWidget {
   final SelectedTab currentTab;

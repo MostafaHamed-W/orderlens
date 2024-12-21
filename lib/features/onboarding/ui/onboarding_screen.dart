@@ -55,7 +55,7 @@ class OnboardingScreen extends StatelessWidget {
                 ),
               ),
               CustomTextButton(buttonText: "Get Started".hardcoded, onPressed: () => context.pushNamed(Routes.dashboardScreen)),
-              verticalHight(10),
+              verticalHight(20),
             ],
           ),
         ),
