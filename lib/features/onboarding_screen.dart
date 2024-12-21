@@ -5,9 +5,9 @@ import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/routing/routes.dart';
 import 'package:orderlens/core/helpers/assets_paths.dart';
+import 'package:orderlens/core/theming/colors_manager.dart';
 import 'package:orderlens/core/theming/styles.dart';
 import 'package:orderlens/core/widgets/custom_text_button.dart';
-
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -23,7 +23,6 @@ class OnboardingScreen extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       verticalHight(20),
                       Text(
@@ -33,22 +32,18 @@ class OnboardingScreen extends StatelessWidget {
                       ),
                       verticalHight(20),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),
                         child: SvgPicture.asset(AssetsPaths.onBoarding),
                       ),
-                      Center(
-                        child: Text(
-                          'Your Gateway to Smarter Metrics'.hardcoded,
-                          style: TextStyles.font20SemiBold,
-                          textAlign: TextAlign.center,
-                        ),
+                      Text(
+                        'Your Gateway to Smarter Metrics'.hardcoded,
+                        style: TextStyles.font20SemiBold,
+                        textAlign: TextAlign.center,
                       ),
-                      Center(
-                        child: Text(
-                          'Track orders, analyze trends, and optimize your business decisions. Simplify your workflow with smart insights.'.hardcoded,
-                          style: TextStyle(fontSize: 16, color: Colors.grey[400]),
-                          textAlign: TextAlign.center,
-                        ),
+                      Text(
+                        'Track orders, analyze trends, and optimize your business decisions. Simplify your workflow with smart insights.'.hardcoded,
+                        style: TextStyles.font14Regular.copyWith(color: ColorsManager.lightGrey),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),

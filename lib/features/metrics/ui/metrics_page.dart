@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:orderlens/core/di/dependency_injection.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/widgets/custom_app_bar_widget.dart';
+import 'package:orderlens/core/widgets/custom_error_widget.dart';
 import 'package:orderlens/core/widgets/custom_title_text.dart';
 import 'package:orderlens/features/metrics/data/models/orders_metrics_model.dart';
-import 'package:orderlens/features/metrics/logic/cubit/order_metrics_cubit.dart';
-import 'package:orderlens/features/metrics/logic/cubit/order_metrics_state.dart';
+import 'package:orderlens/features/metrics/logic/metrics_cubit/order_metrics_cubit.dart';
+import 'package:orderlens/features/metrics/logic/metrics_cubit/order_metrics_state.dart';
 import 'package:orderlens/features/metrics/ui/widgets/circular_perecent_section.dart';
 import 'package:orderlens/features/metrics/ui/widgets/metrics_card.dart';
 
@@ -17,17 +17,18 @@ class MetricsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ordersMetricsCubit = context.read<OrderMetricsCubit>();
     return Scaffold(
       appBar: CustomAppBar(title: 'Orders Metrics'.hardcoded),
-      body: BlocProvider(
-        create: (_) => getIt<OrderMetricsCubit>()..fetchMetrics(),
+      body: RefreshIndicator(
+        onRefresh: () => ordersMetricsCubit.fetchMetrics(),
         child: BlocBuilder<OrderMetricsCubit, OrderMetricsState>(
           builder: (context, state) {
             return state.when(
               initial: () => const SizedBox.shrink(),
               loading: () => const Center(child: CircularProgressIndicator()),
               success: (metrics) => _buildMetricsContent(metrics),
-              failure: (message) => Center(child: Text('Error: $message')),
+              failure: (message) => _buildErrorContent(message),
             );
           },
         ),
@@ -73,5 +74,9 @@ class MetricsPage extends StatelessWidget {
         ],
       ),
     );
+  }
+  
+  Widget _buildErrorContent(String errorMessage) {
+    return CustomErrorWidget(errorMessage: errorMessage);
   }
 }

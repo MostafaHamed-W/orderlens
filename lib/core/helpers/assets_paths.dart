@@ -2,8 +2,9 @@ class AssetsPaths {
   static const String orderJson = 'lib/core/sources/orders.json';
   static const String coreImagesPath = 'assets/images/';
 
-  /// OnBoarding
+  // OnBoarding
   static const String onBoarding = '${coreImagesPath}onboarding.svg';
 
-
+  // Error
+  static const String error = '${coreImagesPath}error.svg';
 }

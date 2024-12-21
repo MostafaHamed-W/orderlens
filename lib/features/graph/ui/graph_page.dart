@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:orderlens/core/di/dependency_injection.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/utilites/helper_functions.dart';
 import 'package:orderlens/core/widgets/custom_app_bar_widget.dart';
+import 'package:orderlens/core/widgets/custom_error_widget.dart';
 import 'package:orderlens/core/widgets/custom_title_text.dart';
-import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
-import 'package:orderlens/features/graph/logic/graph_cubit/orders_cubit.dart';
-import 'package:orderlens/features/graph/logic/graph_cubit/orders_state.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_graph_model.dart';
+import 'package:orderlens/features/graph/logic/graph_cubit/orders_graph_cubit.dart';
+import 'package:orderlens/features/graph/logic/graph_cubit/orders_graph_state.dart';
 import 'package:orderlens/features/graph/ui/widgets/orders_graph.dart';
 import 'package:orderlens/features/graph/ui/widgets/orders_per_month_widget.dart';
 
@@ -18,17 +18,18 @@ class GraphPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ordersGraphCubit = context.read<OrdersGraphCubit>();
     return Scaffold(
       appBar: CustomAppBar(title: 'Orders graph'.hardcoded),
-      body: BlocProvider(
-        create: (_) => getIt<OrdersCubit>()..fetchOrders(),
-        child: BlocBuilder<OrdersCubit, OrdersState>(
+      body: RefreshIndicator(
+        onRefresh: () => ordersGraphCubit.fetchOrders(),
+        child: BlocBuilder<OrdersGraphCubit, OrdersGraphState>(
           builder: (context, state) {
             return state.when(
               initial: () => const SizedBox.shrink(),
               loading: () => const Center(child: CircularProgressIndicator()),
               success: (groupedOrders) => _buildGraphContent(groupedOrders),
-              failure: (message) => Center(child: Text('Error: $message')),
+              failure: (message) => _buildErrorContent(message),
             );
           },
         ),
@@ -36,7 +37,7 @@ class GraphPage extends StatelessWidget {
     );
   }
 
-  Widget _buildGraphContent(List<GroupedOrdersModel> groupedOrders) {
+  Widget _buildGraphContent(List<GroupedOrdersGraphModel> groupedOrders) {
     final months = groupedOrders.map((order) => order.date.monthName).toList();
     final values = groupedOrders.map((order) => order.orderCount).toList();
 
@@ -57,5 +58,9 @@ class GraphPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget _buildErrorContent(String errorMessage) {
+    return CustomErrorWidget(errorMessage: errorMessage);
   }
 }

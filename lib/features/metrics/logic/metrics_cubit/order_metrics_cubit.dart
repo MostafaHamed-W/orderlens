@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:orderlens/features/metrics/data/repos/order_metrics_repo.dart';
-import 'package:orderlens/features/metrics/logic/cubit/order_metrics_state.dart';
+import 'package:orderlens/features/metrics/logic/metrics_cubit/order_metrics_state.dart';
 
 class OrderMetricsCubit extends Cubit<OrderMetricsState> {
   final OrderMetricsRepository _repository;
@@ -10,7 +10,7 @@ class OrderMetricsCubit extends Cubit<OrderMetricsState> {
   Future<void> fetchMetrics() async {
     emit(const OrderMetricsState.loading());
 
-    await Future.delayed(const Duration(milliseconds: 300));
+    await Future.delayed(const Duration(milliseconds: 200));
 
     final result = await _repository.getOrderMetrics();
     result.when(

@@ -1,9 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:orderlens/core/services/local_data_service.dart';
-import 'package:orderlens/features/graph/data/repos/order_repo.dart';
-import 'package:orderlens/features/graph/logic/graph_cubit/orders_cubit.dart';
+import 'package:orderlens/features/graph/data/repos/order_graph_repo.dart';
+import 'package:orderlens/features/graph/logic/graph_cubit/orders_graph_cubit.dart';
 import 'package:orderlens/features/metrics/data/repos/order_metrics_repo.dart';
-import 'package:orderlens/features/metrics/logic/cubit/order_metrics_cubit.dart';
+import 'package:orderlens/features/metrics/logic/metrics_cubit/order_metrics_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -19,8 +19,8 @@ Future<void> setupGetIt() async {
   //* As when we want to use it again it will be mounted, and it distroys itself when it's no longer used
 
   // Orders
-  getIt.registerLazySingleton<OrderRepo>(() => OrderRepo(getIt()));
-  getIt.registerFactory<OrdersCubit>(() => OrdersCubit(getIt()));
+  getIt.registerLazySingleton<OrderGraphRepo>(() => OrderGraphRepo(getIt()));
+  getIt.registerFactory<OrdersGraphCubit>(() => OrdersGraphCubit(getIt()));
 
   getIt.registerLazySingleton<OrderMetricsRepository>(() => OrderMetricsRepository(getIt()));
   getIt.registerFactory<OrderMetricsCubit>(() => OrderMetricsCubit(getIt()));
