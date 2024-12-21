@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:orderlens/core/di/dependency_injection.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/widgets/custom_app_bar_widget.dart';
+import 'package:orderlens/core/widgets/custom_error_widget.dart';
 import 'package:orderlens/core/widgets/custom_title_text.dart';
 import 'package:orderlens/features/metrics/data/models/orders_metrics_model.dart';
 import 'package:orderlens/features/metrics/logic/metrics_cubit/order_metrics_cubit.dart';
@@ -28,7 +28,7 @@ class MetricsPage extends StatelessWidget {
               initial: () => const SizedBox.shrink(),
               loading: () => const Center(child: CircularProgressIndicator()),
               success: (metrics) => _buildMetricsContent(metrics),
-              failure: (message) => Center(child: Text('Error: $message')),
+              failure: (message) => _buildErrorContent(message),
             );
           },
         ),
@@ -74,5 +74,9 @@ class MetricsPage extends StatelessWidget {
         ],
       ),
     );
+  }
+  
+  Widget _buildErrorContent(String errorMessage) {
+    return CustomErrorWidget(errorMessage: errorMessage);
   }
 }
