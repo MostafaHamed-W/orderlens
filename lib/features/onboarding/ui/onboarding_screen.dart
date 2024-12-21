@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:orderlens/core/helpers/extensions.dart';
 import 'package:orderlens/core/helpers/spacing.dart';
 import 'package:orderlens/core/routing/routes.dart';
-import 'package:orderlens/core/theming/app_images.dart';
+import 'package:orderlens/core/helpers/assets_paths.dart';
 import 'package:orderlens/core/theming/styles.dart';
 import 'package:orderlens/core/widgets/custom_text_button.dart';
 
@@ -34,7 +34,7 @@ class OnboardingScreen extends StatelessWidget {
                       verticalHight(20),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: SvgPicture.asset(AppImages.onBoarding),
+                        child: SvgPicture.asset(AssetsPaths.onBoarding),
                       ),
                       Center(
                         child: Text(
