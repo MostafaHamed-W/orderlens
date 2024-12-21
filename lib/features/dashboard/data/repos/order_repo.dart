@@ -21,7 +21,13 @@ class OrderRepo {
       }
 
       // Convert grouped data to a list of models and sort by date
-      final groupedOrders = monthOrderCounts.entries.map((entry) => GroupedOrdersModel(date: entry.key, orderCount: entry.value)).toList()..sort((a, b) => a.date.compareTo(b.date));
+      final groupedOrders = monthOrderCounts.entries
+          .map((entry) => GroupedOrdersModel(
+                date: entry.key,
+                orderCount: entry.value,
+              ))
+          .toList()
+        ..sort((a, b) => a.date.compareTo(b.date));
 
       return DataResult.success(groupedOrders);
     } catch (e) {
