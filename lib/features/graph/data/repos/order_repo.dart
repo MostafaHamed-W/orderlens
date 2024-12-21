@@ -1,7 +1,7 @@
 import 'package:orderlens/core/services/data_result.dart';
 import 'package:orderlens/core/services/local_data_service.dart';
-import 'package:orderlens/features/dashboard/data/models/grouped_orders_model.dart';
-import 'package:orderlens/features/dashboard/data/models/order_model.dart';
+import 'package:orderlens/features/graph/data/models/grouped_orders_model.dart';
+import 'package:orderlens/features/graph/data/models/order_model.dart';
 
 class OrderRepo {
   final LocalDataService _localDataService;

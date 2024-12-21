@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:orderlens/core/services/local_data_service.dart';
-import 'package:orderlens/features/dashboard/data/repos/order_repo.dart';
-import 'package:orderlens/features/dashboard/logic/cubit/orders_cubit.dart';
+import 'package:orderlens/features/graph/data/repos/order_repo.dart';
+import 'package:orderlens/features/graph/logic/graph_cubit/orders_cubit.dart';
 
 final getIt = GetIt.instance;
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:orderlens/core/helpers/assets_paths.dart';
-import 'package:orderlens/features/dashboard/data/models/order_model.dart';
+import 'package:orderlens/features/graph/data/models/order_model.dart';
 
 class LocalDataService {
   Future<List<OrderModel>> getOrders() async {

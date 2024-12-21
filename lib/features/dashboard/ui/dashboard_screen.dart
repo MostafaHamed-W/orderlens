@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:orderlens/core/widgets/bottom_navigation_bar_widget.dart';
-import 'package:orderlens/features/dashboard/ui/graph_page.dart';
-import 'package:orderlens/features/dashboard/ui/metrics_page.dart';
+import 'package:orderlens/features/graph/ui/graph_page.dart';
+import 'package:orderlens/features/metrics/ui/metrics_page.dart';
 import 'package:animations/animations.dart';
 
 class DashboardScreen extends StatefulWidget {
